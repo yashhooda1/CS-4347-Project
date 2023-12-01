@@ -52,14 +52,10 @@ def create_borrower():
 
 # Function to generate a new card_no
 def generate_new_card_no():
-    # Replace this with your actual logic to generate a new card_no
-    # For demonstration purposes, I'm using a simple format: "C" + current_timestamp
     return "C" + str(int(datetime.now().timestamp()))
 
 # Function to check if the SSN is unique
 def is_ssn_unique(borrower_ssn):
-    # Replace this with your actual logic to check if the SSN is unique
-    # For demonstration purposes, I'm using a dictionary to simulate the data
     existing_borrowers = {
         "123-45-6789": {"card_no": "C123456789"},
         "987-65-4321": {"card_no": "C987654321"},
@@ -69,7 +65,7 @@ def is_ssn_unique(borrower_ssn):
 
 # Function to insert a new BORROWER into the database
 def insert_into_borrowers(card_no, name, ssn, address):
-    # Add your logic here to insert the new BORROWER into the BORROWERS table
+    #insert the new BORROWER into the BORROWERS table
     print(f"BORROWER created with Card Number: {card_no}, Name: {name}, SSN: {ssn}, Address: {address}")
 
 
@@ -115,10 +111,10 @@ def checkout_books():
     # Calculate due_date (14 days after date_out)
     due_date = (datetime.today() + timedelta(days=14)).strftime("%Y-%m-%d")
 
-    # Update the BOOK_LOANS table (replace this with your actual database update logic)
+    # Update the BOOK_LOANS table 
     for item, checkout_id in zip(selected_items, checkout_ids):
         book_title = tree.item(item, "values")[0]  # Assuming the book title is in the first column
-        # Insert the checkout information into the BOOK_LOANS table (replace this with your actual database update logic)
+        # Insert the checkout information into the BOOK_LOANS table 
         print(f"Book '{book_title}' checked out with Checkout ID: {checkout_id}, Card Number: {card_number}, Date Out: {date_out}, Due Date: {due_date}")
 
 #Successful checkout
@@ -131,8 +127,8 @@ def prompt_for_card_number():
 
 #Get active loans method
 def get_active_loans_count(card_number):
-    # Replace this with your actual logic to retrieve the count of active loans for the given borrower
-    # For demonstration purposes, I'm using a dictionary to simulate the data
+    #retrieve the count of active loans for the given borrower
+    #simulate the data
     borrower_loans = {
         "123": [{"status": "active"}, {"status": "active"}, {"status": "returned"}],
         "456": [{"status": "active"}, {"status": "active"}],
