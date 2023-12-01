@@ -20,7 +20,7 @@ def search_books():
     for item in tree.get_children():
         tree.delete(item)
 
-    # Iterate through your data and find matches
+    # Iterate through the data and find matches
     for book in library_data:
         if query in book["ISBN"].lower() or query in book["Book Title"].lower() or query in book["Author"].lower():
             tree.insert("", "end", text=book["ISBN"], values=(book["Book Title"], book["Author"], book["Genre"], book["Year"], book["Status"]))
@@ -38,12 +38,12 @@ def create_borrower():
         messagebox.showerror("Error", "Name, SSN, and address are required to create a new account.")
         return
 
-    # Generate a new card_no (replace this with your actual logic)
+    # Generate a new card number
     new_card_no = generate_new_card_no()
 
     # Check if the SSN is unique
     if is_ssn_unique(borrower_ssn):
-        # Insert the new BORROWER into the database (replace this with your actual database update logic)
+        # Insert the new BORROWER into the database.
         insert_into_borrowers(new_card_no, borrower_name, borrower_ssn, borrower_address)
 
         messagebox.showinfo("Success", f"Borrower created successfully with Card Number: {new_card_no}")
